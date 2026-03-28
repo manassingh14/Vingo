@@ -8,7 +8,7 @@ import { FaUtensils } from "react-icons/fa";
 import FoodCard from '../components/FoodCard';
 import { FaArrowLeft } from "react-icons/fa";
 function Shop() {
-    const {shopId}=useParams()
+    const {shopId}=useParams() 
     const [items,setItems]=useState([])
     const [shop,setShop]=useState([])
     const navigate=useNavigate()
