@@ -27,8 +27,8 @@ export const signUp=async (req,res) => {
 
         const token=await genToken(user._id)
         res.cookie("token",token,{
-            secure:false,
-            sameSite:"strict",
+            secure:true,
+            sameSite:"none",
             maxAge:7*24*60*60*1000,
             httpOnly:true
         })
@@ -55,8 +55,8 @@ export const signIn=async (req,res) => {
 
         const token=await genToken(user._id)
         res.cookie("token",token,{
-            secure:false,
-            sameSite:"strict",
+            secure:true,
+            sameSite:"none",
             maxAge:7*24*60*60*1000,
             httpOnly:true
         })
@@ -146,10 +146,10 @@ export const googleAuth=async (req,res) => {
         // If user exists, just log them in (do not block based on signup method)
         const token = await genToken(user._id);
         res.cookie("token", token, {
-            secure: false,
-            sameSite: "strict",
-            maxAge: 7 * 24 * 60 * 60 * 1000,
-            httpOnly: true
+            secure:true,
+            sameSite:"none",
+            maxAge:7*24*60*60*1000,
+            httpOnly:true
         });
         return res.status(200).json(user);
     } catch (error) {
